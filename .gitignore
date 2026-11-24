@@ -1,0 +1,15 @@
+# File di sistema di macOS
+.DS_Store
+
+# Dipendenze (si reinstallano con composer e npm, non vanno versionate)
+vendor/
+node_modules/
+
+# Segreti: mai su Git
+.env
+.env.*
+!.env.example
+
+# Chiavi private e certificati
+*.key
+*.pem
