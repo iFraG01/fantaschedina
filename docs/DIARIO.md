@@ -67,3 +67,29 @@ per `.local` (filtro RPZ) e macOS lo preferisce all'mDNS di OrbStack. Soluzione 
 DNS Quad9 sul Mac; per ora uso gli IP. SSH con chiave rimandato alla M05.
 
 **Prossimo passo**: M05 · Git e GitHub (+ SSH con chiavi).
+
+---
+
+## 2026-11-24 · Missione M05
+
+**Fatto**: chiave SSH ed25519 (passphrase nel Portachiavi) usata per GitHub e per la VM;
+sulla VM login SSH solo con chiave (`PasswordAuthentication no`, verificato). Repository
+Git locale con `.gitignore` nel primo commit, tre commit in formato Conventional Commits,
+push su GitHub, prima pull request (diario). Repository reso pubblico per poter proteggere
+`main` (ADR 0001): il push diretto su `main` viene rifiutato. Esercizio sul conflitto di merge.
+
+**Capito**:
+- verificare l'impronta di un server alla prima connessione (TOFU) tramite un canale
+  indipendente (`orb -m server ssh-keygen -lf ...`)
+- una password non si recupera dall'hash: root può solo reimpostarla
+- `apt update` prima di `apt install`: un indice vecchio porta a errori 404
+- il `.gitignore` agisce solo sui file non tracciati; un segreto committato resta nella storia
+- `git pull` = `fetch` + `merge`; un commit di merge ha due genitori
+- un conflitto nasce quando due branch cambiano la stessa riga: si risolve a mano,
+  poi `git add` e `git commit`
+- `(END)` è il pager `less`: si esce con `q`
+
+**Dubbi / problemi**: con GitHub gratuito la protezione dei branch non vale sui repository
+privati → repository pubblico. "No route to host" verso la VM: era semplicemente spenta.
+
+**Prossimo passo**: M06 · Scripting con Bash (riprendendo pipe e redirezioni della M02).

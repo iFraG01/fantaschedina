@@ -9,7 +9,7 @@ Percorso per imparare il DevOps da zero costruendo un'applicazione reale. Questo
 ### Contesto
 - **Obiettivo**: imparare tutti i concetti fondamentali del DevOps, per curiosità, con un progetto completo.
 - **Ritmo**: libero, senza scadenze. Il percorso è diviso in **missioni** autonome, ognuna con un criterio di "fatto".
-- **Ambiente**: tutto in locale su MacBook Air M5 (Apple Silicon, 24 GB di RAM). Il passaggio al cloud è un'opzione futura.
+- **Ambiente**: tutto in locale su un Mac con Apple Silicon (arm64). Il passaggio al cloud è un'opzione futura.
 - **Livello di partenza**: da zero. Ogni concetto si vede prima in teoria (perché), poi in pratica (come).
 - **Divisione dei compiti**: Claude scrive il codice dell'applicazione e lo spiega; l'utente svolge le attività DevOps guidato da Claude.
 
@@ -42,7 +42,7 @@ Percorso per imparare il DevOps da zero costruendo un'applicazione reale. Questo
 
 | Area | Strumenti |
 |---|---|
-| Base | Homebrew, zsh, Git, GitHub (repo privato), VS Code |
+| Base | Homebrew, zsh, Git, GitHub (repo pubblico), VS Code |
 | Container e VM | OrbStack (Docker + VM Linux) |
 | CI | GitHub Actions, GitHub Container Registry |
 | Sicurezza della supply chain | Gitleaks, Semgrep, Trivy, Dependabot, Cosign |
@@ -161,9 +161,9 @@ Ogni missione ha: **obiettivo**, **concetti**, **attività** e **✅ Fatto quand
 #### M05 · Git e GitHub
 - **Obiettivo**: lavorare con Git come in un team.
 - **Concetti**: commit, branch, merge, rebase, conflitti, pull request, `.gitignore`, Conventional Commits.
-- **Attività**: account GitHub con 2FA e chiave SSH; repository **privato** `fantaschedina`; caricare `CLAUDE.md` e i file di `docs/`; proteggere `main`; aprire e unire la prima pull request; creare `docs/DIARIO.md`.
+- **Attività**: account GitHub con 2FA e chiave SSH; repository **pubblico** `fantaschedina` (vedi `docs/adr/0001-repository-pubblico.md`); caricare `CLAUDE.md` e i file di `docs/`; proteggere `main`; aprire e unire la prima pull request; creare `docs/DIARIO.md`.
 - ✅ **Fatto quando**:
-  - [ ] il repository privato contiene la documentazione
+  - [ ] il repository pubblico contiene la documentazione
   - [ ] `main` è protetto e si modifica solo tramite pull request
   - [ ] ho risolto almeno un conflitto di merge in un esercizio
   - [ ] il `.gitignore` esclude `.env` fin dal primo commit
@@ -180,7 +180,7 @@ Ogni missione ha: **obiettivo**, **concetti**, **attività** e **✅ Fatto quand
 - **Obiettivo**: confermare con dati reali le scelte sui dati.
 - **Concetti**: API REST, autenticazione con chiave, rate limit, JSON.
 - **Attività**: registrarsi ad API-Football; salvare la chiave in `.env` (mai su Git); con `curl` e `jq` interrogare stato e quota residua, campionato e stagione di Serie A, partite della prossima giornata, bookmaker disponibili, quote di una partita, eventi e giocatori di una partita già giocata; scrivere `scripts/api-check.sh`.
-- ✅ **Fatto quando**, documentato in `docs/adr/0001-fonte-dati.md`:
+- ✅ **Fatto quando**, documentato in `docs/adr/0002-fonte-dati.md`:
   - [ ] il piano gratuito copre la stagione in corso della Serie A
   - [ ] Bet365 è disponibile, con quali mercati
   - [ ] le quote marcatore esistono e **quanti giorni prima** della partita compaiono (osservare per qualche giorno)
@@ -204,7 +204,7 @@ Ogni missione ha: **obiettivo**, **concetti**, **attività** e **✅ Fatto quand
 #### M09 · Architettura e decisioni
 - **Obiettivo**: capire come è fatta l'app prima di costruirla.
 - **Concetti**: componenti, API REST, code e job, ADR.
-- **Attività**: leggere e discutere con Claude l'architettura (sezione 3); scrivere `0002-stack.md` e `0003-job-e-dati.md`.
+- **Attività**: leggere e discutere con Claude l'architettura (sezione 3); scrivere `0003-stack.md` e `0004-job-e-dati.md`.
 - ✅ **Fatto quando**:
   - [ ] so spiegare il ruolo di ogni componente
   - [ ] so spiegare perché l'API esterna si chiama solo dal worker
@@ -277,7 +277,7 @@ Ogni missione ha: **obiettivo**, **concetti**, **attività** e **✅ Fatto quand
 
 #### M18 · Build e pubblicazione delle immagini
 - **Concetti**: tag delle immagini (SHA del commit, versioni semantiche), registry, cache di build.
-- **Attività**: costruire e pubblicare le immagini su GitHub Container Registry (privato) a ogni merge su `main`.
+- **Attività**: costruire e pubblicare le immagini su GitHub Container Registry a ogni merge su `main`.
 - ✅ **Fatto quando**:
   - [ ] ogni merge produce immagini taggate e rintracciabili fino al commit
 
@@ -394,7 +394,7 @@ Rose assegnate dall'admin e bonus sulle giocate.
 
 #### M31 · Threat model e 2FA
 - **Contenuto**: Claude sviluppa l'autenticazione a due fattori (TOTP).
-- **Attività**: l'utente scrive il threat model dell'app (es. con STRIDE): qui la tua formazione in cybersecurity è protagonista.
+- **Attività**: l'utente scrive il threat model dell'app (es. con STRIDE): qui le competenze di sicurezza sono protagoniste.
 - ✅ **Fatto quando**:
   - [ ] il threat model è in `docs/` con le contromisure e il loro stato
   - [ ] la 2FA funziona
