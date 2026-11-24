@@ -15,9 +15,9 @@ Il progetto è prima di tutto un **percorso per imparare il DevOps da zero**: l'
 
 ## Chi è l'utente
 
-- Laurea magistrale in cybersecurity, **principiante assoluto nel DevOps**: va trattato come uno che parte da zero, senza dare per scontati i concetti di base.
+- **Principiante assoluto nel DevOps** (con basi di sicurezza informatica): va trattato come uno che parte da zero, senza dare per scontati i concetti di base.
 - Lavora a ritmo libero, quando ne ha voglia: possono passare settimane tra una sessione e l'altra.
-- Macchina: MacBook Air M5 (Apple Silicon, arm64), 24 GB di RAM. Tutto gira **in locale**; il cloud eventualmente più avanti.
+- Macchina: Mac con Apple Silicon (arm64). Tutto gira **in locale**; il cloud eventualmente più avanti.
 - Lingua: **italiano** per spiegazioni, documentazione e interfaccia utente.
 
 ## Modalità di lavoro (fondamentale)
@@ -68,7 +68,7 @@ Riguarda la fase 0, Docker, CI, IaC, Kubernetes, GitOps, osservabilità, sicurez
 | Test e qualità | Pest/PHPUnit, PHPStan (Larastan), Pint, ESLint, Vitest |
 | Dati calcio | API-Football (piano gratuito), quote Bet365 |
 
-Strumenti DevOps: Homebrew, Git/GitHub (repository privato), OrbStack, GitHub Actions, Gitleaks, Semgrep, Trivy, Ansible, Terraform, LocalStack, k3d, Helm, Argo CD, Prometheus, Grafana, Loki, SOPS, Kyverno, Cosign, k6.
+Strumenti DevOps: Homebrew, Git/GitHub (repository pubblico, vedi ADR 0001), OrbStack, GitHub Actions, Gitleaks, Semgrep, Trivy, Ansible, Terraform, LocalStack, k3d, Helm, Argo CD, Prometheus, Grafana, Loki, SOPS, Kyverno, Cosign, k6.
 
 ## Struttura del repository
 
@@ -83,7 +83,7 @@ fantaschedina/
 │   ├── PIANO.md
 │   ├── REGOLAMENTO.md
 │   ├── DIARIO.md
-│   └── adr/             # 0001-fonte-dati.md, 0002-stack.md, ...
+│   └── adr/             # 0001-repository-pubblico.md, 0002-fonte-dati.md, ...
 ├── deploy/
 │   ├── docker/          # Dockerfile e configurazioni dei container
 │   ├── compose/         # docker compose
